@@ -103,6 +103,7 @@ class ViewPatient extends Component {
                                                     <Text style={{ color: '#88FF00' }}>Cost:</Text><Text>{item.cost}</Text>
 
                                                 </ListItem>
+                                                < Icon  style = {{ marginLeft : 280}}  name='trash' />
 
                                             </List>
                                         </CardItem>
