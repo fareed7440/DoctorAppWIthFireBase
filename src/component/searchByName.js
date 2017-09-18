@@ -93,7 +93,7 @@ class SearchByName extends Component {
                                 <ScrollView>
                                     <Card style={{ flex: 1 }}>
                                         <CardItem >
-                                            <List key={i}>
+                                            <List key={i+1}>
                                                 <ListItem>
                                                     <Text style={{ color: '#88FF00' }} >Name:</Text><Text>{item.name}</Text>
 

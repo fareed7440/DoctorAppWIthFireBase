@@ -4,7 +4,7 @@ import {
     AsyncStorage, Text,
     ScrollView 
 } from 'react-native'
-import { Container, Content, Card, Header, Item, Input, Button, CardItem, Icon, Right,Left, ListItem,Title, List, Body,Footer,FooterTab } from 'native-base';
+import { Container, Content, Card, Header, Item, Input, FooterTab, Button, CardItem, Icon, Right,Left, ListItem,Title, List, Body,Footer } from 'native-base';
 
 
 
@@ -40,43 +40,43 @@ class ViewPatient extends Component {
         return (
             <Container>
                 <Content>
-
-                    <Header>
-   <Left>
-
-      < Icon style = {{marginLeft:10}}  name='ios-people' 
+                     <Footer>
+                    <FooterTab>
+                          < Icon style = {{marginTop:15 ,  color : '#FFFFFF' ,marginLeft : 4}}  name='ios-arrow-back' 
+         onPress={() => Actions.home()}
+      
+        />
+                        <Button>
+                             < Icon style = {{}}  name='search' 
          onPress={() => Actions.searchByDateCon()}
       
         />
-                     <Text>Search By date</Text>
+     <Text > By date</Text>
    
-  </ Left>
-          <Body>
-            <Title style={{marginLeft:15}}>Patient Detail</Title>
-          </Body>
-          <Right >
- <Icon style = {{marginTop : -10}}  name="ios-people"
+                        </Button>
+
+<Text style ={{marginTop : 16 , fontSize : 17}}>View Patient Detail</Text>
+
+
+                        <Button>
+                            <Icon style = {{}}   name="search"
             onPress={() => Actions.search()} />
-                  <Text> Search By name</Text>                            
-                     </Right>    
-
-           
-                   
-                    </Header>
-                  
-
-
-
-
-                    {
-
+                  <Text  style = {{}}> By name</Text> 
+                        </Button>
+                    </FooterTab>
+                </Footer>
+ 
+               {
 
                         arr.map((item, i) => {
+                            
                             return (
+                               
+
                                 <ScrollView>
-                                    <Card key={i} style={{ flex: 1 }}>
+                                    <Card key={i+1}  style={{ flex: 1 , marginLeft : 5 , marginRight : 5 , marginTop : 5 }}>
                                         <CardItem >
-                                            <List >
+                                            <List  >
                                                 <ListItem>
                                                     <Text style={{ color: '#88FF00' }} >Name:</Text><Text>{item.name}</Text>
 
@@ -107,10 +107,12 @@ class ViewPatient extends Component {
                                             </List>
                                         </CardItem>
                                     </Card>
-
-                                </ScrollView>
+                                     </ScrollView>
+ 
+                               
 
                             )
+                           
                         })
                     }
 

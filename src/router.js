@@ -14,7 +14,7 @@ class Routing extends Component{
 <Scene key = "home">
        <Scene key="home" component={Home} hideNavBar = {true} />
          <Scene key="addPatient" component={PatientCon} title = 'Add Patient Detail' hideNavBar = {false} />
-           <Scene key="viewpatient" component={ViewPatientCon} title = 'View Patient Detail' hideNavBar = {false} />
+           <Scene key="viewpatient" component={ViewPatientCon} title = 'View Patient Detail'  hideNavBar = {true} />
               <Scene key="search" component={SearchCon} title = 'Patient Detail' hideNavBar = {false} />
                 <Scene key="searchByDateCon" component={SearchDateCon} title = 'Patient Detail' hideNavBar = {false} />
             </Scene>

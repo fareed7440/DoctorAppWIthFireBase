@@ -7,7 +7,7 @@ class Home extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style = {{backgroundColor:'#FFFFFF'}}>
                 <Header >
                     <Left>
                         <Button transparent>
@@ -17,7 +17,7 @@ class Home extends Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title style={{ marginLeft: 35 }}>Doctor App</Title>
+                        <Title style={{ marginLeft: 46 }}>Doctor App</Title>
                     </Body>
                     <Right >
                         <TouchableOpacity >
@@ -30,7 +30,7 @@ class Home extends Component {
 
 
                 <CardItem cardBody>
-                      <Image source={require('../images/aa.png')} style={{ height: 457, width: null, flex: 1 }} />
+                      <Image source={require('../images/aa.png')} style={{ flex: 1, marginLeft : 10 , marginRight : 10 , marginTop : 100 }} />
                         {/* <Image source={{ uri: 'https://thumbs.dreamstime.com/z/welcome-sign-showing-hello-greeting-hospitality-29397629.jpg' }} style={{ height: 457, width: null, flex: 1 }} /> */}
                   
                 </CardItem>
@@ -39,7 +39,7 @@ class Home extends Component {
                         <Text>Add patient</Text>
                     </Button>
                 </TouchableOpacity>*/}
-                <Footer>
+                <Footer style  = {{marginTop: 60}}>
                     <FooterTab>
                         <Button>
                             <Icon name="ios-briefcase"  style={{ color: 'red' }} onPress={() => Actions.viewpatient()} />
