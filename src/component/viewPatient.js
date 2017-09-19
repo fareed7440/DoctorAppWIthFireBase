@@ -85,7 +85,7 @@ deleteObject(name){
                         </Button>
                     </FooterTab>
                 </Footer>
- 
+  
                {
 
                         arr.map((item, i) => {
@@ -93,8 +93,8 @@ deleteObject(name){
                             return (
                                
 
-                                <ScrollView key={i+1}>
-                                    <Card  style={{ flex: 1 , marginLeft : 5 , marginRight : 5 , marginTop : 5 }}>
+                              
+                                    <Card key={i+1} style={{ flex: 1 , marginLeft : 5 , marginRight : 5 , marginTop : 5 }}>
                                         <CardItem >
                                             <List   >
                                                 <ListItem>
@@ -128,7 +128,7 @@ deleteObject(name){
                                             </List>
                                         </CardItem>
                                     </Card>
-                                     </ScrollView>
+                                    
  
                                
 
