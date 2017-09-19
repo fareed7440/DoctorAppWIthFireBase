@@ -23,7 +23,7 @@ class AddPatient extends Component {
             medison: '',
             cost: '',
             age: '',
-            gender: "Gender"
+            gender: "male"
         }
         this.handleFormInput = this.handleFormInput.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -107,7 +107,6 @@ class AddPatient extends Component {
 
                             onChangeText={(gender) => this.setState({ gender })}
                         >
-                            <Item label="Gender" value="Gender" />
                             <Item label="male" value="male" />
                             <Item label="female" value="female" />
 
@@ -194,13 +193,13 @@ class AddPatient extends Component {
                                 onChangeText={(cost) => this.setState({ cost })}
                             />
                         </Item>
-                        <TouchableOpacity >
+                  
                             <Button type="submit"
                                 onPress={this.handleFormInput}
                                 style={{ marginLeft: 150, marginTop: 20 }} bordered>
                                 <Text>Submit</Text>
                             </Button>
-                        </TouchableOpacity >
+                        
                     </Form>
                     </Card>
                 </Content>
