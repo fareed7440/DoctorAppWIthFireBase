@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
+import * as DB from '../firebase/firebase'
 import {
     AsyncStorage, Text,
     ScrollView 
@@ -15,10 +16,29 @@ class ViewPatient extends Component {
         this.state = {
             name: ''
         }
+        this.deleteObject = this.deleteObject.bind(this);
 
     }
 
+deleteObject(name){
+     var that = this;
+        var getData
+        var deletedObject
+        var starCountRef = DB.database.ref('/patientRecords/patient/').orderByChild('name').equalTo(name).once('value', function (snapshot) {
+            console.log("deleted VAlue", snapshot.val());
+            getData = snapshot.val()
+            for (let [key, value] of Object.entries(getData)) {
+                console.log("got Object", key, value);
+                deletedObject = key
+                console.log("deletedObject", deletedObject);
+            }
 
+
+        });
+
+        this.props.removeItems(deletedObject);
+        this.props.patient();
+}
 
     componentWillMount() {
         this.props.patient();
@@ -30,7 +50,7 @@ class ViewPatient extends Component {
         const data = this.props && this.props.view && this.props.view.viewPatient ? this.props.view.viewPatient : [];
         const helper = data[0];
         for (var key in helper) {
-            console.log(helper[key])
+            console.log('55555',[key])
 
             arr.push(helper[key])
             console.log(arr, 'arrr')
@@ -73,10 +93,10 @@ class ViewPatient extends Component {
                             return (
                                
 
-                                <ScrollView>
-                                    <Card key={i+1}  style={{ flex: 1 , marginLeft : 5 , marginRight : 5 , marginTop : 5 }}>
+                                <ScrollView key={i+1}>
+                                    <Card  style={{ flex: 1 , marginLeft : 5 , marginRight : 5 , marginTop : 5 }}>
                                         <CardItem >
-                                            <List  >
+                                            <List   >
                                                 <ListItem>
                                                     <Text style={{ color: '#88FF00' }} >Name:</Text><Text>{item.name}</Text>
 
@@ -103,7 +123,7 @@ class ViewPatient extends Component {
                                                     <Text style={{ color: '#88FF00' }}>Cost:</Text><Text>{item.cost}</Text>
 
                                                 </ListItem>
-                                                < Icon  style = {{ marginLeft : 280}}  name='trash' />
+                                                < Icon onPress={() => this.deleteObject(item.name)}  style = {{ marginLeft : 280}}  name='trash' />
 
                                             </List>
                                         </CardItem>
