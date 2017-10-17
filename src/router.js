@@ -9,7 +9,7 @@ import SearchDateCon from './container/searchByDateCon'
 class Routing extends Component{
     render(){
         return(
-            <Router > 
+            <Router  titleStyle={{alignSelf:'center',}}> 
 
 <Scene key = "home">
        <Scene key="home" component={Home} hideNavBar = {true} />

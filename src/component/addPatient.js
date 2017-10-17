@@ -5,7 +5,10 @@ import DatePicker from 'react-native-datepicker'
 import {
     Text,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    StyleSheet,
+    ToastAndroid
+    .
 
 } from 'react-native';
 
@@ -32,12 +35,24 @@ class AddPatient extends Component {
 
     handleFormInput = (e) => {
         e.preventDefault();
+         if (!this.state.name || !this.state.disease || !this.state.medison ||!this.state.cost || !this.state.age || !this.state.gender ) {
+            ToastAndroid.show(
+            //     {
+            //     text: 'Please insert field',
+            //     position: 'bottom',
+            //     buttonText: 'Okay'
+            // }
+        'Please insert field',ToastAndroid.SHORT
+        )
+            //ToastAndroid.show('Please insert Username and Password', ToastAndroid.SHORT);
+        } else {
 
 
 //  const month = ["Jan", "Feb", "Mar", "April", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"];
 //         const getmonth = this.state.sdate.getMonth();
 //         const months = month[getmonth];
-  let date = this.state.date.getDate() + "." + this.state.date.getMonth() + "." + this.state.date.getFullYear();
+var d = new Date();
+  let date = d.getDate() + "." + d.getMonth() + "." + d.getFullYear();
 
 
         let name = this.state.name.toLowerCase();
@@ -59,6 +74,7 @@ class AddPatient extends Component {
         console.log('ggg', obj)
         this.props.PatientReq(obj)
     }
+    }
 
     handleInput = (evt) => {
 
@@ -74,7 +90,7 @@ class AddPatient extends Component {
     render() {
         return (
 
-            <Container>
+            <Container style={styles.container}>
                 <Content>
                     <Card style={{flex : 1}}>
                     <Form onSubmit={this.handleFormInput}>
@@ -213,3 +229,18 @@ class AddPatient extends Component {
 
 
 export default AddPatient
+
+const styles = StyleSheet.create({
+    container : {
+ top: '-2%',
+   marginLeft:'2%',
+    marginTop:'2%',
+    marginRight:'2%',
+   padding: '2%',
+    backgroundColor: '#499999',
+    borderRadius:5,
+    opacity: 0.9
+    },
+
+
+})
